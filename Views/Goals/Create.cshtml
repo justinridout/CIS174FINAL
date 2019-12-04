@@ -1,0 +1,57 @@
+﻿@model EditGoalsBase
+
+@{
+    ViewData["Title"] = "Create Goal";
+}
+    <img src="~/images/banner2.jpg" alt="GymPic2" class="img-responsive" />
+<h2 style="text-align:center;">@ViewData["Title"]</h2>
+<hr />
+<form asp-controller="Goals" asp-action="Create" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label asp-for="GoalBench" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="GoalBench" class="form-control" />
+            <span asp-validation-for="GoalBench" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="HighestBench" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="HighestBench" class="form-control" />
+            <span asp-validation-for="HighestBench" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="GoalSquat" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="GoalSquat" class="form-control" />
+            <span asp-validation-for="GoalSquat" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="HighestSquat" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="HighestSquat" class="form-control" />
+            <span asp-validation-for="HighestSquat" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="GoalDeadlift" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="GoalDeadlift" class="form-control" />
+            <span asp-validation-for="GoalDeadlift" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="HighestDeadlift" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="HighestDeadlift" class="form-control" />
+            <span asp-validation-for="HighestDeadlift" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </div>
+</form>

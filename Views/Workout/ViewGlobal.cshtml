@@ -1,0 +1,55 @@
+﻿@model FinalProject.Models.ViewModels.WorkoutDetailedViewModel
+@{
+    ViewData["Title"] = "Workout Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+<form asp-action="DeleteWorkoutGlobal" asp-route-id="@Model.Id">
+    @if (Model.CanEditWorkout)
+    {
+        <p>
+            <button class="btn btn-danger">Delete</button>
+        </p>
+    }
+</form>
+<h3>Targeted Muscle Group: @Model.TargetedMuscleGroup</h3>
+<h3>Date of Workout: @Model.Date</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Exercise Name
+            </th>
+            <th>
+                Reps
+            </th>
+            <th>
+                Sets
+            </th>
+            <th>
+                Weight
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Exercises)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExerciseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.reps)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sets)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.weight)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

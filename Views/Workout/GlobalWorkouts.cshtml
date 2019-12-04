@@ -1,0 +1,32 @@
+﻿@model ICollection<WorkoutSummaryViewModel>
+@{
+    ViewData["Title"] = "Global Workouts";
+}
+<img src="~/images/global.jpg" alt="GymPic1" class="img-responsive" />
+<h2 style="text-align:center;"> @ViewData["Title"]</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped recipe">
+        <thead>
+            <tr>
+                <th>Created By</th>
+                <th>Targeted Muscle</th>
+                <th>Number of Exercises</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var workout in Model)
+            {
+                <tr>
+
+                    <td>@workout.CreatedByName</td>
+                    <td>@workout.TargetedMuscleGroup</td>
+                    <td>@workout.NumberOfExercises</td>
+                    <td><a asp-action="ViewGlobal" asp-route-id="@workout.Id" class="btn">View</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a asp-controller="Home" asp-action="Index" class="btn btn-success">Back To Home</a>

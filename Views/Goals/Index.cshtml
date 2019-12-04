@@ -1,0 +1,96 @@
+﻿@model ICollection<GoalsSummaryViewModel>
+@{
+    ViewData["Title"] = "Goals";
+}
+<img src="~/images/goals.png" alt="GymPic2" class="img-responsive" />
+<h2> @ViewData["Title"]</h2>
+@foreach (var goal in Model)
+{
+    <h4> Goal Created: @goal.DateCreated</h4>
+}
+
+
+<div class="table-responsive">
+    <table class="table table-striped recipe">
+        <thead>
+            <tr>
+                <th>Bench Goal</th>
+                <th>Current Bench</th>
+                <th>Percent Completed</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var goal in Model)
+            {
+                <tr>
+                    <td>@goal.GoalBench</td>
+                    <td>@goal.HighestBench</td>
+                    @if (goal.GoalBench != 0 || goal.HighestBench != 0)
+                    {
+                        <td>@(((double)goal.HighestBench / (double)goal.GoalBench) * 100)%</td>
+                    }
+                    else
+                    {
+                        <td>0%</td>
+                    }
+                </tr>
+            }
+        </tbody>
+        <thead>
+            <tr>
+                <th>Squat Goal</th>
+                <th>Current Squat</th>
+                <th>Percent Completed</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var goal in Model)
+            {
+                <tr>
+
+                    <td>@goal.GoalSquat</td>
+                    <td>@goal.HighestSquat</td>
+                    @if (goal.GoalSquat != 0 || goal.HighestSquat != 0)
+                    {
+                        <td>@(((double)goal.HighestSquat / (double)goal.GoalSquat) * 100)%</td>
+                    }
+                    else
+                    {
+                        <td>0%</td>
+                    }
+
+                </tr>
+            }
+        </tbody>
+        <thead>
+            <tr>
+                <th>Deadlift Goal</th>
+                <th>Current Deadlift</th>
+                <th>Percent Completed</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var goal in Model)
+            {
+                <tr>
+
+                    <td>@goal.GoalDeadlift</td>
+                    <td>@goal.HighestDeadlift</td>
+                    @if (goal.GoalDeadlift != 0 || goal.HighestDeadlift != 0)
+                    {
+                        <td>@(((double)goal.HighestDeadlift / (double)goal.GoalDeadlift) * 100)%</td>
+                    }
+                    else
+                    {
+                        <td>0%</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>*Only your most recent goal will be displayed*</p>
+</div>
+<a asp-action="Create" class="btn btn-success">Create New Goal</a>
